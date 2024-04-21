@@ -46,4 +46,5 @@ res.status(500).json({erro:'Internal server error'});
 });
 
 
+//exports
 module.exports=router;
