@@ -9,7 +9,7 @@ const menuItem=require('./models/menu.js');
 app.use(express.json());
 
 
-const PORT=process.env.PORT || 3000;
+const port=process.env.PORT || 3000;
 
 app.get('/Home',(req,res)=>{
   res.send('Welcome to Our Hotel');
@@ -25,6 +25,6 @@ app.use('/menu',menuRoutes);
 
 
 
-app.listen(3000,()=>{
-  console.log('SERVER IS LISTENTNING on port:3000');
+app.listen(port,()=>{
+  console.log(`SERVER IS LISTENTNING at port: ${port}`);
 });
