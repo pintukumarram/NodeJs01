@@ -20,30 +20,23 @@ const personSchema=new mongoose.Schema({
 },
 work:{
   type:String,
-  required:"Owner",
+  required:true
 },
 salary:{
 type:Number,
 required:true
+},
+username:{
+  type:String,
+  required:true
+},
+password:{
+  type:String,
+  required:true
 }
+
 });
 
 //Create/Define model  person model
 const Person=mongoose.model('person',personSchema);
-
-
-// Create a new person
-// const newPerson = new Person({
-//   name: 'John',
-//   age: 30,
-//   mobile: "6524254254",
-//   email:"pkr@gmail.com",
-//   work:"owner"
-// });
-
-// Save the person to the database
-// newPerson.save()
-//     .then(() => console.log('Person saved to database'))
-//     .catch(err => console.error('Error saving person to database:', err));
-
 module.exports=Person;

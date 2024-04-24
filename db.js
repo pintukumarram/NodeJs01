@@ -11,7 +11,7 @@ mongoose.connect(mongoURL, {
     useUnifiedTopology: true
 });
 
-// // Setup MongoDB for local server
+// Setup MongoDB for local server
 // mongoose.connect(mongoURL_local, {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true
