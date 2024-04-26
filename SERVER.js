@@ -6,7 +6,7 @@ const localStretegy=require('passport-local').Strategy;
 require('dotenv').config();
 
 
-// const person=require('./models/persons.js');
+const person=require('./models/persons.js');
 // const menuItem=require('./models/menu.js');
 // const Person=require('./models/persons.js')
 
@@ -25,7 +25,7 @@ passport.use( new localStretegy(async(username,password,done)=>{
   // Authentication logic here
   try{
 console.log('Received credentials:',username,password);
-const user= await Person.findOne(({username:username}));
+const user= await person.findOne({username:username});
 if(!user)
   return done(null,false,{message:'Incorrect username.'});
 
@@ -55,8 +55,8 @@ const personroutes=require('./routes/personroutes.js');
 const menuRoutes=require('./routes/menuRoutes.js')
 
 //use the router
-app.use('/person',personroutes);
-app.use('/menu',menuRoutes);
+app.use('/person',localAuthMiddleware,personroutes);
+app.use('/menu',localAuthMiddleware,menuRoutes);
 
 
 
