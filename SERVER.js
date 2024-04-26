@@ -29,8 +29,8 @@ const personroutes=require('./routes/personroutes.js');
 const menuRoutes=require('./routes/menuRoutes.js')
 
 //use the router
-app.use('/person',localAuthMiddleware,personroutes);
-app.use('/menu',localAuthMiddleware,menuRoutes);
+app.use('/person',localAuthMiddleware,personroutes);//authentication is added to person data
+app.use('/menu',menuRoutes); 
 
 
 app.listen(port,()=>{
